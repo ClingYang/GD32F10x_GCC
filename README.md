@@ -25,6 +25,7 @@ To support other GD32F10x parts, you need:
 
 - change 'Firmware/Ld/Link.ld', set FLASH and RAM size according to your MCU.
 - 根据你的芯片来修改  'Firmware/Ld/Link.ld' 文件 里面的  FLASH and RAM 的值
+- 不知道这个FLASH and RAM 的值就去这个网站搜一下芯片就有了  [https://www.szlcsc.com/](https://www.szlcsc.com/)
 - choose correct startup asm file and change the 'ASM_SOURCES' in 'Makefile'
 - 修改启动文件在makefile里面
   + Firmware/CMSIS/GD/GD32F10x/Source/GCC/startup_gd32f10x_cl.S : for 105 and 107

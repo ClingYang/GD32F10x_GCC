@@ -4,9 +4,7 @@
 # do NOT leave space at the end of line
 # 项目名字
 TARGET = gd32f10x
-
 # 你的路径 需要修改的地方
-MYASM_SOURCES = Firmware/CMSIS/GD/GD32F10x/Source/GCC/startup_gd32f10x_cl.S 
 MYLDSCRIPT = Firmware/Ld/Link.ld
 MYOPENOCD = "E:/TOOL/OPENOCD/BIN/OPENOCD.EXE"
 MYOPENOCD_SCRIPTSEPATH = "E:/TOOL/OPENOCD/SHARE/OPENOCD/SCRIPTS"
@@ -20,7 +18,8 @@ $(wildcard $(SRCDIR)/User/**/*.c)\
 $(wildcard $(SRCDIR)/Firmware/CMSIS/GD/GD32F10x/Source/system_gd32f10x.c)\
 $(wildcard $(SRCDIR)/Firmware/GD32F10x_standard_peripheral/Source/*.c) 
 
-# 下载器 jlink stlink 
+# 下载器 jlink stlink >>>>>>>>>>>>>>这里可以修改下载器
+# 例如换成 stlink :MYINTERFACE = interface/stlink.cfg
 MYINTERFACE = interface/jlink.cfg
 # 芯片系列 gd用st的cfg
 MYTARGET = target/stm32f1x.cfg 
@@ -28,7 +27,8 @@ MYTARGET = target/stm32f1x.cfg
 MYC_DEFS =  \
 -DUSE_STDPERIPH_DRIVER \
 -DGD32F10X_CL
-#
+
+MYASM_SOURCES = Firmware/CMSIS/GD/GD32F10x/Source/GCC/startup_gd32f10x_cl.S 
 
 ######################################
 # building variables
