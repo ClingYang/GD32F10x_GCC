@@ -39,6 +39,8 @@ To support other GD32F10x parts, you need:
 - 我把这些需要修改的地方全部给再定义一遍如下 
 ![alt text](PIC/image.png)
 
+
+
 #### 文档还在持续优化中........
 
 
