@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "STM32",
+            "includePath": [
+                "Firmware/CMSIS",
+                "Firmware/CMSIS/GD/GD32F10x/Include",
+                "Firmware/GD32F10x_standard_peripheral/Include",
+                "Template",
+                "Bsp",
+                "User"
+            ],
+            "defines": [
+                "GD32F10X_MD",
+                "USE_STDPERIPH_DRIVER"
+            ],
+            "compilerPath": "E:/Tool/mingw64/bin/gcc.exe"
+        }
+    ],
+    "version": 4
+}
