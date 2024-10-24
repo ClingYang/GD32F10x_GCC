@@ -6,8 +6,6 @@
 TARGET = gd32f10x
 # 你的路径 需要修改的地方
 MYLDSCRIPT = Firmware/Ld/Link.ld
-MYOPENOCD = "E:/TOOL/OPENOCD/BIN/OPENOCD.EXE"
-MYOPENOCD_SCRIPTSEPATH = "E:/TOOL/OPENOCD/SHARE/OPENOCD/SCRIPTS"
 # C文件目录
 SRCDIR := .
 SRCS := \
@@ -50,35 +48,6 @@ BUILD_DIR = build
 # source
 ######################################
 # C sources  C 源文件包含路径
-# C_SOURCES = \
-# Firmware/CMSIS/GD/GD32F10x/Source/system_gd32f10x.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_spi.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_bkp.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_can.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_exti.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_dac.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_wwdgt.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_enet.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_gpio.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_adc.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_fmc.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_dbg.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_timer.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_exmc.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_fwdgt.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_usart.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_misc.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_rcu.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_pmu.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_dma.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_i2c.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_rtc.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_sdio.c \
-# Firmware/GD32F10x_standard_peripheral/Source/gd32f10x_crc.c \
-# Bsp/systick.c \
-# Bsp/gd32f10x_it.c \
-# User/main.c
-
 C_SOURCES = $(SRCS) 
 
 # ASM sources
@@ -112,7 +81,7 @@ BIN = $(CP) -O binary -S
 # CFLAGS
 #######################################
 # cpu
-CPU = -mcpu=cortex-m4
+CPU = -mcpu=cortex-m3
 
 # fpu
 # NONE for Cortex-M0/M0+/M3
@@ -209,7 +178,7 @@ $(BUILD_DIR):
 
 
 program:
-	$(MYOPENOCD) -f $(MYOPENOCD_SCRIPTSEPATH)/$(MYINTERFACE)  -f $(MYOPENOCD_SCRIPTSEPATH)/$(MYTARGET) -c "program $(BUILD_DIR)/$(TARGET).elf verify reset exit"
+	$(MYOPENOCD) -f ./openocd.cfg -c "program $(BUILD_DIR)/$(TARGET).elf verify reset exit"
 
 #######################################
 # clean up
