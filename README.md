@@ -1,4 +1,5 @@
 # 借鉴于
+
 [https://github.com/cjacker/gd32f10x_firmware_library_gcc_makefile](https://github.com/cjacker/gd32f10x_firmware_library_gcc_makefile)
 
 For more information about how to use this library, refer to [this tutorial](https://github.com/cjacker/opensource-toolchain-stm32).
@@ -20,6 +21,7 @@ To build the project, type `make`.
 
 
 # to support other parts
+
 To support other GD32F10x parts, you need:
 要支持 gdf10x 系列的话：
 
@@ -38,9 +40,24 @@ To support other GD32F10x parts, you need:
 - change the 'TARGET' in 'Makefile'
 - 我把这些需要修改的地方全部给再定义一遍如下 
 ![alt text](PIC/image.png)
+# 这个GD32F10X_GCC 只是一个点灯的程序 用作样例
+## 2024.10.31 修改makefile 如下 
 
+- 修改了clean的命令
+``` shell
+clean:
+ifeq ($(OS),Windows_NT)
+	rmdir /Q /S $(BUILD_DIR)
+else
+	-rm -fR $(BUILD_DIR)
+endif
+```
+- 移除芯片烧入 并添加openocd.cfg 文件
 
+![alt text](PIC/image2.png)
+![alt text](PIC/Hero_1.png)
 
+好处就是不需要再去修改makefile去选择烧录器(但是要修改cfg文件yue)
 #### 文档还在持续优化中........
 
 
